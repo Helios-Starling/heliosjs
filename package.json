@@ -18,8 +18,8 @@
     "build": "bun build ./src/index.js --outdir ./dist"
   },
   "dependencies": {
-    "@helios-starling/utils": "^0.3.0",
-    "@killiandvcz/buffer": "^1.0.1",
+    "@helios-starling/utils": "0.4.0",
+    "@killiandvcz/buffer": "^1.0.2",
     "@killiandvcz/pulse": "^1.0.2",
     "jose": "^5.9.6",
     "zod": "^3.24.1"
