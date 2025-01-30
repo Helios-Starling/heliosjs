@@ -1,0 +1,38 @@
+# Source
+test/
+docs/
+examples/
+.github/
+
+# Config files
+.eslintrc
+.prettierrc
+.gitignore
+.editorconfig
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Dev files
+*.test.js
+*.spec.js
+jest.config.js
+tsconfig.json
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporaires
+*.tmp
+*.temp
+
+# Bun
+bun.lockb

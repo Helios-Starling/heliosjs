@@ -1,0 +1,46 @@
+{
+  "name": "@helios-starling/helios",
+  "version": "0.3.1",
+  "description": "A WebSocket server implementation for Bun with method handling, reconnection support, and state persistence",
+  "main": "src/index.js",
+  "type": "module",
+  "author": "Killian Di Vincenzo",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/helios-starling/helios.git"
+  },
+  "bugs": {
+    "url": "https://github.com/helios-starling/helios/issues"
+  },
+  "homepage": "https://github.com/helios-starling/helios#readme",
+  "scripts": {
+    "test": "bun --watch ./test/index.js",
+    "build": "bun build ./src/index.js --outdir ./dist"
+  },
+  "dependencies": {
+    "@helios-starling/utils": "^0.3.0",
+    "@killiandvcz/buffer": "^1.0.1",
+    "@killiandvcz/pulse": "^1.0.2",
+    "jose": "^5.9.6",
+    "zod": "^3.24.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "keywords": [
+    "websocket",
+    "bun",
+    "server",
+    "rpc",
+    "realtime",
+    "reconnection",
+    "state-management"
+  ],
+  "license": "MIT"
+}
