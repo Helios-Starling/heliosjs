@@ -142,6 +142,14 @@ export class StarlingsManager {
                 message: `New Starling ${starling.id} created`
             }
         });
+
+        this._helios.events.emit('starling:connected', {
+            starling,
+            debug: {
+                type: 'connection',
+                message: `New Starling ${starling.id} created`
+            }
+        });
         
         return starling;
     }

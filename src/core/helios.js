@@ -66,6 +66,8 @@ export class Helios extends NetworkNode {
         }
         
         this._starlings = new StarlingsManager(this);
+
+        // this.broadcast = this._starlings.broadcast;
     }
     
     _handlers = {
@@ -205,15 +207,19 @@ export class Helios extends NetworkNode {
      * Handle new Starling connection
      * @param {(starling: import('./starling').Starling) => void} handler
      */
-    onNewStarling = handler => this._events.on('starling:new', event => handler(event.starling));
+    onConnection = handler => this._events.on('starling:connected', event => handler(event.data.starling));
+
+    /**
+     * Handle lost Starling connection
+     * @param {(starling: import('./starling').Starling) => void} handler
+     */
+    onDisconnection = handler => this._events.on('starling:disconnected', event => handler(event.data.starling));
 
     /**
      * Handle recovered Starling connection
      * @param {(starling: import('./starling').Starling) => void} handler
      */
-    onRecoveredStarling = handler => this._events.on('starling:recovered', event => handler(event.starling));
-
-
+    onRecovery = handler => this._events.on('starling:recovered', event => handler(event.data.starling));
     
     /**
     * Gets server options
@@ -236,4 +242,18 @@ export class Helios extends NetworkNode {
     get proxies() {
         return this._proxies;
     }
+    
+    /**
+     * Gets the Starlings manager
+     */
+    get starlings() {
+        return this._starlings;
+    }
+
+    /**
+     * Gets event emitter
+     */
+    get events() {
+        return this._events;
+    };
 }

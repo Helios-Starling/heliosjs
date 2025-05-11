@@ -1,8 +1,12 @@
 {
   "name": "@helios-starling/helios",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "A WebSocket server implementation for Bun with method handling, reconnection support, and state persistence",
   "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./utils": "./src/utils/index.js"
+  },
   "type": "module",
   "author": "Killian Di Vincenzo",
   "repository": {
@@ -15,10 +19,11 @@
   "homepage": "https://github.com/helios-starling/helios#readme",
   "scripts": {
     "test": "bun --watch ./test/index.js",
-    "build": "bun build ./src/index.js --outdir ./dist"
+    "build": "bun build ./src/index.js --outdir ./dist",
+    "generate-types": "bunx -p typescript tsc src/**/*.js --declaration --allowJs --emitDeclarationOnly --outDir types"
   },
   "dependencies": {
-    "@helios-starling/utils": "0.4.0",
+    "@helios-starling/utils": "0.4.1",
     "@killiandvcz/buffer": "^1.0.2",
     "@killiandvcz/pulse": "^1.0.2",
     "jose": "^5.9.6",

@@ -2,17 +2,19 @@ import { CommonErrors, createApplicationError, createErrorResponse, createNotifi
 import { Starling } from "../core/starling";
 
 /**
+ * @typedef {import("@helios-starling/utils").ProxyHandlers} ProxyHandlers
+ */
+
+/**
  * @type {import("@helios-starling/utils").ProxyHandlers}
  */
 export const proxyConfiguration = {
     request: async (context) => {
         const {peer, payload, starling} = context;
-        console.log(`Request from ${peer}: ${payload}`);
 
         /** @type {import("../core/helios").Helios} */
         const helios = starling._networkNode;
         const handler = helios.proxies.onRequest
-        console.log('Handler:', handler);
         
         if (!handler) {
             context.error(CommonErrors.PROXY_FORBIDDEN, 'Proxy is disabled for requests by the server');
@@ -45,7 +47,6 @@ export const proxyConfiguration = {
     },
     response: async (context) => {
         const {peer, data, starling} = context;
-        console.log(`Response for ${peer}: ${data}`);
 
         /** @type {import("../core/helios").Helios} */
         const helios = starling._networkNode;
@@ -89,7 +90,6 @@ export const proxyConfiguration = {
     },
     notification: async (context) => {
         const {peer, data, starling} = context;
-        console.log(`Notification for ${peer}: ${data}`);
 
         /** @type {import("../core/helios").Helios} */
         const helios = starling._networkNode;
@@ -123,7 +123,7 @@ export const proxyConfiguration = {
     },
     errorMessage: async (context) => {
         const {peer, message, details, starling} = context;
-        console.log(`Error for ${peer}: ${message} (${details})`);
+
 
         /** @type {import("../core/helios").Helios} */
         const helios = starling._networkNode;

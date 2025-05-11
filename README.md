@@ -106,8 +106,6 @@ The server uses a sophisticated connection management system via the `StarlingsM
 ```javascript
 // Custom connection handling
 server.events.on('starling:new', ({ starling }) => {
-  console.log(`New connection: ${starling.id}`);
-  
   // Setup custom state providers
   starling.states.register('custom', 
     async () => ({ /* save state */ }),
